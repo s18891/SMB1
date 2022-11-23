@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyShopList</string>
+    <string name="app_name">SMB1</string>
     <string name="action_settings">Preferences</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

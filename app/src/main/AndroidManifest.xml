@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.SMB">
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission android:name="smb.permission"
+        android:label="smbpermission"
+        ></permission>
+
+    <uses-permission android:name="smb.permission"/>
 
     <application
         android:allowBackup="true"
@@ -26,6 +31,8 @@
             android:label="@string/title_activity_settings" />
         <activity
             android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"
             android:theme="@style/Theme.MyShopList.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,5 +1,6 @@
 package com.example.SMB
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -172,7 +173,18 @@ class MainActivity : AppCompatActivity(), DialogFragmentItem.AddDialogListener {
             val message = Message.obtain()
             message.data.putString("message", "Item added to list")
             handler.sendMessage(message)
+            val intent1 = Intent()
+            intent1.component = ComponentName("com.example.smb2", "com.example.smb2.MyReceiver")
+            intent1.putExtra("name", item.name)
+            intent1.putExtra("count", item.count)
+            intent1.putExtra("price", item.price)
+            sendBroadcast(intent1,"smb.permission")
+
+
+
         }).start()
+
+        
     }
 
     private fun checkTheme() {
