@@ -7,11 +7,9 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -35,6 +33,36 @@ class MainActivity : AppCompatActivity(), DialogFragmentItem.AddDialogListener {
 
 
         setFab()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+            val action = intent.getStringExtra("name")
+            if (action != null) {
+                Toast.makeText(
+                    applicationContext,
+                    action,
+                    Toast.LENGTH_SHORT).show()
+            }
+
+
+
+    }
+
+
+
+
+
+    override fun onNewIntent(intentRecieved: Intent) {
+        val action = intentRecieved.getStringExtra("name")
+        if (action != null) {
+            Toast.makeText(
+                applicationContext,
+                action,
+                Toast.LENGTH_SHORT).show()
+        }
+        super.onNewIntent(intentRecieved)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
