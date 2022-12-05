@@ -3,10 +3,14 @@ package com.example.SMB
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.DialogFragment
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import kotlinx.android.synthetic.main.dialog_add_item.view.*
+
 
 class DialogFragmentItem : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -23,6 +27,11 @@ class DialogFragmentItem : DialogFragment() {
                         val price = customView.editPrice.text.toString().toDouble()
                         val item = ShoppingListItem(0, name, count, price)
                         mListener.onDialogPositiveClick(item)
+                        val i = Intent()
+                        i.putExtra("data", name)
+                        i.action = "com.pjatk.smb2.MainActivity"
+                        i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+                        context?.sendBroadcast(i,"com.pjatk.smb2.MainActivity.broadcast_permission")
                         dialog.dismiss()
                     }
                     .setNegativeButton(R.string.dialog_cancel) { dialog, id ->
