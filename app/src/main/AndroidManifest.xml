@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.SMB">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <permission android:name="smb.permission"
-        android:label="smbpermission"
-        ></permission>
 
-    <uses-permission android:name="smb.permission"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission
+        android:name="smb.permission"
+        android:label="smbpermission" />
+
+    <uses-permission android:name="smb.permission" />
 
     <application
         android:allowBackup="true"
@@ -16,16 +18,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyShopList">
         <activity
-            android:name=".WebActivity"
-            android:label="@string/title_activity_web"
-            android:exported="false">
+            android:name=".LoginActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
-
+        <activity
+            android:name=".WebActivity"
+            android:exported="false"
+            android:label="@string/title_activity_web">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
